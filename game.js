@@ -128,7 +128,10 @@ function movePlayer() {
   });
   
   if (enemyCollision) {
-    levelFail();
+    showColision();
+    //espera 1 segundo para empezar la funciona level fail//
+    setTimeout (levelFail,1000);
+   // levelFail();
   }
 
   game.fillText(emojis['PLAYER'], playerPosition.x, playerPosition.y);
@@ -187,6 +190,13 @@ function showLives() {
  spanLives.innerHTML = "";
  heartsArray.forEach(heart => spanLives.append(heart));
  
+}
+//prueba
+function showColision() {
+  game.fillText (emojis['BOMB_COLLISION'], playerPosition.x, playerPosition.y);
+  playerPosition.x = undefined;
+  playerPosition.y = undefined;
+  console.log ('choque');
 }
 
 function showTime() {
